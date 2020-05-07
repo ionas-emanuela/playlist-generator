@@ -1,0 +1,79 @@
+.root{
+    -fx-background-color: rgba(0, 0, 0, 231);
+}
+.textField{
+    -fx-text-fill: rgb(140, 213, 245);
+    -fx-background-color: rgba(0, 0, 0, 231);
+    -fx-border-color: rgb(140, 213, 245);
+    -fx-border-width: 2px;
+}
+.label{
+    -fx-text-fill: rgb(0, 114, 187);
+    -fx-font-size: 14 px;
+    -fx-spacing: 4px;
+}
+.button{
+    -fx-background-color: rgba(0, 0, 0, 231);
+    -fx-border-color: rgb(161, 73, 157);
+    -fx-text-fill: rgb(161, 73, 157);
+    -fx-border-width: 2px;
+}
+.column{
+    -fx-background-color: rgba(0, 0, 0, 231);
+    -fx-text-fill: rgb(113,191,69);
+    -fx-border-color: rgb(113,191,69);
+    -fx-border-width: 2px;
+}
+.columnName{
+    -fx-background-color: rgba(0, 0, 0, 231);
+    -fx-font-size: 12 px;
+    -fx-text-fill: rgb(113,191,69);
+    -fx-border-color: rgb(113,191,69);
+    -fx-border-width: 2px;
+}
+.errorMessage{
+    -fx-text-fill: rgb(254, 242, 0);
+    -fx-font-size: 12 px;
+    -fx-border-color: rgb(254, 242, 0);
+    -fx-spacing: 4px;
+}
+.username{
+    -fx-text-fill: rgb(254, 242, 0);
+    -fx-font-size: 12 px;
+    -fx-border-color: rgb(254, 242, 0);
+    -fx-border-width: 2px;
+    -fx-spacing: 4px;
+}
+.currentlyPlaying{
+    -fx-text-fill: rgb(140, 213, 245);
+    -fx-font-size: 13 px;
+    -fx-border-color: rgb(140, 213, 245);
+    -fx-border-width: 2px;
+    -fx-spacing: 4px;
+}
+.combo-box {
+    -fx-background-color: rgba(0, 0, 0, 231);
+    -fx-font-size: 12 px;
+    -fx-text-fill: rgb(161, 73, 157);
+    -fx-border-color: rgb(161, 73, 157);
+    -fx-border-width: 2px;
+}
+.combo-box:selected {
+    -fx-background-color: rgb(161, 73, 157);
+    -fx-font-size: 12 px;
+    -fx-text-fill: rgba(0, 0, 0, 231);
+}
+.tableView{
+    -fx-background-color: rgba(0, 0, 0, 231);
+    -fx-text-fill: rgb(113,191,69);
+    -fx-border-color: rgb(113,191,69);
+}
+.table-row-cell:selected {
+    -fx-background-color: rgb(113,191,69);
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+    -fx-text-fill: rgba(0, 0, 0, 231);
+}
+background{
+    -fx-background-color: rgba(0, 0, 0, 231);
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.project.controller.AdminController"
+            prefHeight="500.0" prefWidth="700.0">
+
+    <Label text="SONGS" layoutX="10" layoutY="5" />
+    <TableView fx:id="songsTableView" layoutX="10" layoutY="25" minWidth="350" maxHeight="200" styleClass="columnName">
+        <columns>
+            <TableColumn fx:id="songId" text="ID" styleClass="column" minWidth="20"/>
+            <TableColumn fx:id="songName" text="NAME" styleClass="column"/>
+            <TableColumn fx:id="artistName" text="ARTIST" styleClass="column"/>
+            <TableColumn fx:id="genre" text="GENRE" styleClass="column"/>
+            <TableColumn fx:id="viewCount" text="VIEW COUNT" styleClass="column"/>
+        </columns>
+    </TableView>
+
+    <Label text="USERS" layoutX="440" layoutY="5" />
+    <TableView fx:id="usersTableView" layoutX="440" layoutY="25" minWidth="240" maxWidth="240" maxHeight="200" styleClass="columnName">
+        <columns>
+            <TableColumn fx:id="userId" text="ID" styleClass="column" minWidth="40" />
+            <TableColumn fx:id="username" text="USERNAME" styleClass="column" minWidth="100"/>
+            <TableColumn fx:id="password" text="PASSWORD" styleClass="column" minWidth="100"/>
+        </columns>
+    </TableView>
+
+    <Label text="SONG NAME:" layoutX="10" layoutY="240"/>
+    <TextField fx:id="newSongName" layoutX="120" layoutY="240" styleClass="textField"/>
+    <Label text="ARTIST NAME:" layoutX="10" layoutY="290"/>
+    <TextField fx:id="newArtistName" layoutX="120" layoutY="290" styleClass="textField"/>
+    <Label text="GENRE NAME:" layoutX="10" layoutY="340"/>
+    <TextField fx:id="newGenreName" layoutX="120" layoutY="340" styleClass="textField"/>
+
+    <Button fx:id="newSongButton" layoutX="300" layoutY="240" mnemonicParsing="false" onAction="#addNewSong" text="SAVE SONG"/>
+    <Button fx:id="updateSongButton" layoutX="300" layoutY="290" mnemonicParsing="false" onAction="#updateSong" text="EDIT SONG"/>
+    <Button fx:id="deleteSongButton" layoutX="300" layoutY="340" mnemonicParsing="false" onAction="#deleteSong" text="DELETE SONG"/>
+
+    <Label text="USERNAME:" layoutX="440" layoutY="240"/>
+    <TextField fx:id="newUsername" layoutX="530" layoutY="240" styleClass="textField"/>
+    <Label text="PASSWORD:" layoutX="440" layoutY="290"/>
+    <TextField fx:id="newPassword" layoutX="530" layoutY="290" styleClass="textField"/>
+    <Button fx:id="newUserButton" layoutX="440" layoutY="340" mnemonicParsing="false" onAction="#addNewUser" text="SAVE USER"/>
+    <Button fx:id="updateUserButton" layoutX="520" layoutY="340" mnemonicParsing="false" onAction="#updateUser" text="EDIT USER"/>
+    <Button fx:id="deleteUserButton" layoutX="600" layoutY="340" mnemonicParsing="false" onAction="#deleteUser" text="DELETE USER"/>
+
+
+    <Label fx:id="errorMessage" text="" layoutX="10" layoutY="400" styleClass="errorMessage"/>
+
+    <ComboBox fx:id="reportComboBox" layoutX="440" layoutY="390" styleClass="combo-box"/>
+    <TextField fx:id="reportName" layoutX="530" layoutY="390" styleClass="textField"/>
+    <Button layoutX="530" layoutY="440" mnemonicParsing="false" onAction="#generateReport" text="GENERATE REPORT"/>
+
+
+</AnchorPane>

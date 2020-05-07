@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.project.controller.UserController"
+            prefHeight="510.0" prefWidth="1000.0">
+
+    <Label fx:id="usernameLabel" layoutX="5" layoutY="5" text="" styleClass="username"/>
+    <Label fx:id="currentlyPlaying" layoutX="250" layoutY="5" text="" styleClass="currentlyPlaying"/>
+
+    <TableView fx:id="songsTableView" layoutX="200" layoutY="50" minWidth="400" maxHeight="450" styleClass="columnName">
+        <columns>
+            <TableColumn fx:id="songId" text="ID" styleClass="column" minWidth="20"/>
+            <TableColumn fx:id="songName" text="NAME" styleClass="column"/>
+            <TableColumn fx:id="artistName" text="ARTIST" styleClass="column"/>
+            <TableColumn fx:id="genre" text="GENRE" styleClass="column"/>
+            <TableColumn fx:id="viewCount" text="VIEW COUNT" styleClass="column"/>
+        </columns>
+    </TableView>
+
+    <Label layoutX="620" layoutY="51" text="FIND BY ARTIST"/>
+    <TextField fx:id="searchByArtist" layoutX="735" layoutY="50" onAction="#searchByArtist" styleClass="textField"/>
+    <Button layoutX="900" layoutY="50" mnemonicParsing="false" onAction="#searchByArtist" text="SEARCH"/>
+    <Label layoutX="620" layoutY="101" text="FIND BY GENRE"/>
+    <ComboBox fx:id="genreComboBox" layoutX="735" layoutY="100" maxWidth="150" minWidth="150" onAction="#searchByGenre" styleClass="combo-box" />
+    <Label layoutX="620" layoutY="151" text="FIND BY LISTENS"/>
+    <ComboBox fx:id="viewCountComboBox" layoutX="735" layoutY="150" maxWidth="150" minWidth="150" onAction="#searchByViewCount" styleClass="combo-box" />
+    <Label layoutX="620" layoutY="201" text="FIND BY PLAYLIST"/>
+    <ComboBox fx:id="playlistComboBoxSearch" layoutX="735" layoutY="200" maxWidth="150" minWidth="150" onAction="#searchByPlaylist" styleClass="combo-box" />
+    <Button layoutX="620" layoutY="251" mnemonicParsing="false" onAction="#showAllSongs" text="SHOW ALL SONGS"/>
+
+
+    <Button layoutX="270" layoutY="470" mnemonicParsing="false" onAction="#playSong" text="PLAY SONG"/>
+    <Button layoutX="370" layoutY="470" mnemonicParsing="false" onAction="#removeSongFromPlaylist" text="REMOVE FROM PLAYLIST"/>
+
+    <ComboBox fx:id="playlistComboBox" maxWidth="150" minWidth="150" layoutX="10" layoutY="70" promptText="ADD TO PLAYLIST" onAction="#addSongToPlaylist" styleClass="combo-box"/>
+    <Button layoutX="10" layoutY="120" mnemonicParsing="false" onAction="#addSongToPlaylist" text="ADD TO PLAYLIST"/>
+
+    <Label layoutX="10" layoutY="170" text="CREATE NEW PLAYLIST" />
+    <TextField fx:id="newPlaylistName" layoutX="10" layoutY="200" maxWidth="150" minWidth="150" onAction="#createPlaylist" styleClass="textField"/>
+    <Button layoutX="40" layoutY="250" mnemonicParsing="false" onAction="#createPlaylist" text="CREATE PLAYLIST"/>
+
+    <Label fx:id="currentPlaylist" layoutX="10" layoutY="400" text="" styleClass="username"/>
+
+    <Label fx:id="errorMessage" layoutX="720" layoutY="400" text="" styleClass="errorMessage"/>
+
+</AnchorPane>

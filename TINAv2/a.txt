@@ -1,0 +1,14 @@
+User: renata
+
+3 playlists:
+best playlist, 7 songs
+     1. title: The American Nightmare artist: Ice Nine Kills genre: metalcore
+     2. title: Arguing With Thermometers artist: Enter Shikari genre: alt-rock
+     3. title: Kitana artist: Princess Nokia genre: hip-hop
+     4. title: Downfall artist: Architects genre: metalcore
+     5. title: Communion of the Cursed artist: Ice Nine Kills genre: metalcore
+     6. title: Eclipse artist: Northlane genre: metalcore
+     7. title: Die Like Your Brothers artist: The Plot In You genre: metalcore
+second best playlist, 0 songs
+test, 1 songs
+     1. title: Black Madonna artist: Lady Leshurr genre: grime
