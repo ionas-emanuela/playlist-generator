@@ -19,7 +19,7 @@ public class RSocketController {
     MessageDTO requestResponse(MessageDTO request) {
 
         System.out.println("request received");
-        return new MessageDTO(MessageType.GET,0, "test");
+        return new MessageDTO(MessageType.GET,0, "test-workingggg");
     }
 
     @MessageMapping("stream")

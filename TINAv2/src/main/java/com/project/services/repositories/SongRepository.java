@@ -20,4 +20,8 @@ public interface SongRepository extends JpaRepository<Song, Integer> {
 
     List<Song> findAllByPlaylistSetContaining(Playlist playlist);
 
+    List<Song> findAllByArtist_Id(int id);
+
+    List<Song> findAllByGenre_Id(int id);
+
 }

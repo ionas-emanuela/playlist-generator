@@ -120,4 +120,59 @@ public class SongService {
         return songRepository.findAll();
     }
 
+    public Song playSongById(int songId) {
+
+        Song song = songRepository.findById(songId).orElse(null);
+
+        if(null == song) {
+            throw new EntityNotFoundException(songId,"song");
+        }
+
+        song.setViewCount(song.getViewCount() + 1);
+
+        return songRepository.save(song);
+    }
+
+    public List<Song> findAllSongsByArtistId(int artistId) {
+
+        if(null == artistRepository.findById(artistId).orElse(null)) {
+            throw new EntityNotFoundException(artistId, "artist");
+        }
+
+        List<Song> songList = songRepository.findAllByArtist_Id(artistId);
+
+        if(null == songList) {
+            throw new EntityNotFoundException(artistId, "songs by artist");
+        }
+
+        return songList;
+    }
+
+    public List<Song> findAllSongsByGenreId(int genreId) {
+
+        if(null == genreRepository.findById(genreId).orElse(null)) {
+            throw new EntityNotFoundException(genreId, "artist");
+        }
+
+        List<Song> songList = songRepository.findAllByGenre_Id(genreId);
+
+        if(null == songList) {
+            throw new EntityNotFoundException(genreId, "songs by genre");
+        }
+
+        return songList;
+    }
+
+    public List<Song> findAllSongsByViewCount(int viewCount) {
+
+        List<Song> songList = songRepository.findAllByViewCount(viewCount);
+
+        if(null == songList) {
+            throw new EntityNotFoundException(viewCount, "songs by view count");
+        }
+
+        return songList;
+
+    }
+
 }
