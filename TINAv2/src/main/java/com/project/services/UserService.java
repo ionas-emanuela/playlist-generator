@@ -108,4 +108,25 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
+    public User addFriend(int userId, int friendId) {
+
+        User user = userRepository.findById(userId).orElse(null);
+
+        if(null == user) {
+            throw new EntityNotFoundException(userId, "user");
+        }
+
+        User friend = userRepository.findById(friendId).orElse(null);
+
+        if(null == friend) {
+            throw new EntityNotFoundException(friendId, "user");
+        }
+
+        user.getFriendOf().add(friend);
+        friend.getFriends().add(user);
+
+        return userRepository.save(user);
+
+    }
+
 }

@@ -13,7 +13,6 @@ import java.io.Serializable;
 @Data
 public class UserDTO implements Serializable, IDTO {
 
-    static final long serialVersionUID = 6529685098267757690L;
     int id;
     String username;
     String password;

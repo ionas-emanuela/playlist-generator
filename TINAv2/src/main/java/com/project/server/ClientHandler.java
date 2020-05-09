@@ -1,7 +1,7 @@
 package com.project.server;
 
-import com.project.dtos.*;
-import lombok.SneakyThrows;
+import com.project.dtos.MessageDTO;
+import com.project.dtos.UserDTO;
 
 import java.io.*;
 import java.net.Socket;

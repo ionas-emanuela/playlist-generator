@@ -1,13 +1,7 @@
 package com.project.services;
 
-import com.project.entities.Artist;
-import com.project.entities.Genre;
-import com.project.entities.Playlist;
-import com.project.entities.Song;
-import com.project.services.repositories.ArtistRepository;
-import com.project.services.repositories.GenreRepository;
-import com.project.services.repositories.PlaylistRepository;
-import com.project.services.repositories.SongRepository;
+import com.project.entities.*;
+import com.project.services.repositories.*;
 import com.project.services.utils.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,37 +17,15 @@ public class SongService {
     private final ArtistRepository artistRepository;
     private final GenreRepository genreRepository;
     private final PlaylistRepository playlistRepository;
+    private final UserRepository userRepository;
+    private final SuggestedSongRepository suggestedSongRepository;
 
     public Song findById(int id){
         return songRepository.findById(id).orElse(null);
     }
 
-    public List<Song> findByArtist(String artistName) {
-        return songRepository.findAllByArtist_Name(artistName);
-    }
-
-    public List<Song> findByGenre(String genre) {
-        return songRepository.findAllByGenre_Name(genre);
-    }
-
-    public List<Song> findByViewCount(int viewCount) {
-        return songRepository.findAllByViewCount(viewCount);
-    }
-
     public List<Song> findByPlaylist(Playlist playlist) {
             return songRepository.findAllByPlaylistSetContaining(playlist);
-    }
-
-    public Song findByName(String name) {
-        return songRepository.findByName(name);
-    }
-
-    public Song save(String name, Genre genre, Artist artist) {
-        return songRepository.save(Song.builder().name(name).genre(genre).artist(artist).viewCount(0).playlistSet(new HashSet<Playlist>()).build());
-    }
-
-    public void delete(Song song) {
-        songRepository.delete(song);
     }
 
     public List<Song> findAllSongsByPlaylistId(int id) {
@@ -173,6 +145,32 @@ public class SongService {
 
         return songList;
 
+    }
+
+    public SuggestedSong suggestSong(int songId, int userId, int friendId) {
+
+        User user = userRepository.findById(userId).orElse(null);
+
+        if(null == user) {
+            throw new EntityNotFoundException(userId, "user");
+        }
+
+        User friend = userRepository.findById(friendId).orElse(null);
+
+        if(null == friend) {
+            throw new EntityNotFoundException(friendId, "user");
+        }
+
+        Song song = songRepository.findById(songId).orElse(null);
+
+        if(null == song) {
+            throw new EntityNotFoundException(songId, "song");
+        }
+
+        SuggestedSong suggestedSong = SuggestedSong.builder()
+                .song(song).friend(friend).user(user).build();
+
+        return suggestedSongRepository.save(suggestedSong);
     }
 
 }

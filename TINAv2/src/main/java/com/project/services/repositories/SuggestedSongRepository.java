@@ -1,4 +1,9 @@
 package com.project.services.repositories;
 
-public class SuggestedSongRepository {
+import com.project.entities.SuggestedSong;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SuggestedSongRepository extends JpaRepository<SuggestedSong, Integer> {
+
+
 }

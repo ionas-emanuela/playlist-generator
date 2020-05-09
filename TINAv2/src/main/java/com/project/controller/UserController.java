@@ -1,9 +1,14 @@
 package com.project.controller;
 
+
 import com.project.dtos.PlaylistDTO;
 import com.project.dtos.SongDTO;
+import com.project.dtos.SuggestedSongDTO;
+import com.project.dtos.UserDTO;
 import com.project.entities.Playlist;
 import com.project.entities.Song;
+import com.project.entities.SuggestedSong;
+import com.project.entities.User;
 import com.project.services.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -109,6 +114,22 @@ public class UserController {
         Playlist playlist = playlistService.removeSongFromPlaylist(parameters.get(0),parameters.get(1));
 
         return new PlaylistDTO(playlist);
+    }
+
+    @MessageMapping("add-friend")
+    public UserDTO addFriend(List<Integer> parameters) {
+
+        User user = userService.addFriend(parameters.get(0), parameters.get(1));
+
+        return new UserDTO(user);
+    }
+
+    @MessageMapping("suggest-song")
+    public SuggestedSongDTO suggestSong(List<Integer> parameters) {
+
+        SuggestedSong suggestedSong = songService.suggestSong(parameters.get(0), parameters.get(1), parameters.get(2));
+
+        return new SuggestedSongDTO(suggestedSong);
     }
 
 }

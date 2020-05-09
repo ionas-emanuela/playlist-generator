@@ -2,11 +2,15 @@ package com.project.controller;
 
 import com.project.dtos.SongDTO;
 import com.project.dtos.UserDTO;
-import com.project.entities.*;
-import com.project.services.*;
+import com.project.entities.Song;
+import com.project.entities.User;
+import com.project.services.SongService;
+import com.project.services.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,35 +22,23 @@ public class AdminController {
     private final SongService songService;
     private final UserService userService;
 
-    @GetMapping("/songs")
-    public List<SongDTO> findAllSongs() {
-        List<Song> songList = songService.findAllSongs();
-        List<SongDTO> songDTOList = new ArrayList<>();
-
-        songList.forEach(song -> {
-            songDTOList.add(new SongDTO(song));
-        });
-
-        return songDTOList;
-    }
-
-    @PostMapping("/songs")
-    public SongDTO saveSong(@RequestBody SongDTO toSave) {
+    @MessageMapping("save-song")
+    public SongDTO saveSong(SongDTO toSave) {
         return new SongDTO(songService.saveSong(toSave.toEntity()));
     }
 
-    @DeleteMapping("/songs")
+    @MessageMapping("delete-song-by-id")
     public void deleteSongById(int id) {
         songService.deleteSongById(id);
     }
 
-    @PutMapping("/songs")
-    public SongDTO updateSong(@RequestBody SongDTO toUpdate) {
+    @MessageMapping("update-song")
+    public SongDTO updateSong(SongDTO toUpdate) {
         return new SongDTO(songService.updateSong(toUpdate.toEntity()));
     }
 
-    @GetMapping("/users")
-    public List<UserDTO> findAllUsers() {
+    @MessageMapping("find-all-users")
+    public Flux<UserDTO> findAllUsers() {
         List<User> userList = userService.findAllUsers();
         List<UserDTO> userDTOList = new ArrayList<>();
 
@@ -54,7 +46,7 @@ public class AdminController {
             userDTOList.add(new UserDTO(user));
         });
 
-        return userDTOList;
+        return Flux.fromIterable(userDTOList);
     }
 
     @PostMapping("/users")

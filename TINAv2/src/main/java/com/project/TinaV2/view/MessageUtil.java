@@ -1,4 +1,4 @@
-package com.project.view;
+package com.project.TinaV2.view;
 
 public class MessageUtil {
 

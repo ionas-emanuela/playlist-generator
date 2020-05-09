@@ -1,8 +1,6 @@
 package com.project.dtos;
 
-import com.project.entities.Artist;
-import com.project.entities.Genre;
-import com.project.entities.Song;
+import com.project.entities.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
